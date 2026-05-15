@@ -7,10 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("cardsContainer");
 
   let loading = false;
-
-  // =========================
-  // DARK MODE
-  // =========================
   if (localStorage.getItem("theme") === "dark") {
     body.classList.add("dark");
   }
@@ -25,10 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     });
   }
-
-  // =========================
-  // CARD ANIMATION
-  // =========================
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -38,10 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.2 });
 
   cards.forEach(card => observer.observe(card));
-
-  // =========================
-  // INFINITE SCROLL
-  // =========================
   function loadMoreCards() {
     if (loading) return;
     loading = true;
